@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 
 //Handles routes.  Will change later
 require("./routes/apiRoutes")(app);
-// require("./routes/htmlRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
 //Listener to "start" server
 app.listen(PORT, function() {
