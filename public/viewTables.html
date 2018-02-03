@@ -39,7 +39,7 @@
     </div>
     <div class="card-body">
       <ul id="tables" class="list-group list-group-flush">
-        <li class="list-group-item">All Tables are open</li>
+
       </ul>
     </div>
   </div>
@@ -56,6 +56,7 @@
   </div>
 
   <script type="text/javascript">
+    var tabs = 8
     $.get("/api/tables").then(data => {
       data.forEach(table => {
         var tableLi = $("<li>")
@@ -64,8 +65,13 @@
             .append($("<span>").text("Number of People: " + table.numberOfPeople)
               .addClass("float-right")))
           .prependTo("#tables")
+          tabs--
       })
+      $("#tables").append($("<li>")
+          .addClass("list-group-item").text("You have " + tabs + " table(s) open!"))
     })
+    
+    var wait = 0
     $.get("/api/reservations").then(data => {
       data.forEach(table => {
         var tableLi = $("<li>")
@@ -74,8 +80,12 @@
             .append($("<span>").text("Number of People: " + table.numberOfPeople)
               .addClass("float-right")))
           .appendTo("#waitlist")
+          wait++
       })
+       $("#waitlist").append($("<li>")
+          .addClass("list-group-item").text("You have " + wait + " people waiting!"))
     })
+   
   </script>
 </body>
 
