@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //adding path package 
 var path = require("path");
 
@@ -14,3 +15,9 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, "../public/viewTables.html"));
     });
 };
+=======
+var path = require("path")
+app.get("/", (req, res) => {
+  res.sendFile(path.joinFile(__dirname))
+})
+>>>>>>> 33584d43809705b4be00cfa5c61244b86e3f2071
