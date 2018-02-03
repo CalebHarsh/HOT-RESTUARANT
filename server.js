@@ -3,6 +3,7 @@
 var express = require("express");
 var path = require("path");
 var bodyParser = require("body-parser");
+var reservations = require('./data/reservationsData.js');
 
 //Setting up basic config for express
 
