@@ -12,11 +12,13 @@ module.exports = function(app) {
   })
   //POST
   app.post('/api/tables', function(req, res){
+    let newCustomer = req.body
+    newCustomer.routeName = newCustomer.name.replace(/\s+/g, '').toLowerCase()
     if(tables.length < 8) {
-      tables.push(req.body)
+      tables.push(newCustomer)
       res.json(true)
     } else {
-      reservations.push(req.body)
+      reservations.push(req.newCustomer)
       res.json(false)
     }
   })
