@@ -1,7 +1,7 @@
 
 let tableArr = [
   {
-    routeName: "Morty",
+    routeName: "morty",
     name: "Morty",
     phone: "(907) 555-3232",
     email: "rickIsAJerk@gmail.com",
