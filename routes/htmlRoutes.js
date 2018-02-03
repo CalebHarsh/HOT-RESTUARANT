@@ -14,7 +14,3 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, "../public/viewTables.html"));
     });
 };
-var path = require("path")
-app.get("/", (req, res) => {
-  res.sendFile(path.joinFile(__dirname))
-})
