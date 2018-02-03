@@ -5,6 +5,8 @@ var path = require("path");
 var bodyParser = require("body-parser");
 var reservations = require('./data/reservationsData.js');
 
+var tables = require("./data/tablesData.js")
+
 //Setting up basic config for express
 
 var app = express();
@@ -19,8 +21,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //Handles routes.  Will change later
-// require("./routes/apiRoutes")(app);
-// require("./routes/htmlRoutes")(app);
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
 //Listener to "start" server
 app.listen(PORT, function() {
