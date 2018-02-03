@@ -51,12 +51,28 @@
           <option>8</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-primary mb-4">Submit</button>
+      <button type="submit" class="btn btn-primary mb-4" id="submit">Submit</button>
     </form>
   </div>
   <script type="text/javascript">
-
+    $('#submit').on('click', function(event){
+    event.preventDefault()
+    
+    let reservationRequest = {
+      name: $('#name').val().trim(),
+      phoneNumber: $('#phoneNumber').val().trim(),
+      email: $('#email').val().trim(),
+      numberOfPeople: $('#numberOfPeople').val()
+    }
+    
+    $.post('api/tables', reservationRequest, function(response){
+      console.log(response)
+      if(response) {
+        alert('Your table is ready!')
+      } else {
+        alert('You are on the waitlist')
+      }
+    })
+  })
   </script>
 </body>
-
-</html>
